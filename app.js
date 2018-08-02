@@ -13,6 +13,7 @@ var leaderRouter = require('./routes/leaderRouter');
 var promoRouter = require('./routes/PromoRouter');
 var dishRouter = require('./routes/dishRouter');
 var userRouter = require('./routes/users');
+var favoritesRouter = require('./routes/favoritesRouter');
 
 var config = require('./config');
 var authenticate = require('./authenticate');
@@ -60,6 +61,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/dishes',dishRouter);
 app.use('/leaders',leaderRouter);
 app.use('/promotions',promoRouter);
+app.use('/favorites',favoritesRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
