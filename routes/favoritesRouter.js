@@ -114,7 +114,7 @@ favoritesRouter.route('/:dishId')
 .delete( authenticate.verifyUser, (req,res,next)=>{
     Favorites.findOne({'user': req.user._id})
     .then((favorite)=>{
-        favorite.dishes.pull(req.params.dishId);
+        favorite.dishes.find(req.params.dishId).remove;
         favorite.save()
         .then((favorites)=>{
           res.statusCode = 200;
